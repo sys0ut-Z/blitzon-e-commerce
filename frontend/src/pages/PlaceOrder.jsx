@@ -25,8 +25,6 @@ const PlaceOrder = () => {
   // let delivery_fee = item.quantity * 10;
   // let amount = subtotal + delivery_fee;
 
-  // ? const frontend_url = "http://localhost:5173";
-
   const [address, setAddress] = useState({
     firstname: "",
     lastname: "",

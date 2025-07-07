@@ -93,7 +93,7 @@ import white_keyboard from './other/white_keyboard.jpg'
 import stripe_logo from './other/stripe_logo.png'
 import razorpay_logo from './other/razorpay_logo.png'
 
-export const frontend_url = 'http://localhost:5173';
+// export const frontend_url = 'http://localhost:5173';
 // export const backend_url = 'http://localhost:5300';
 export const backend_url = 'https://blitzon-e-commerce.onrender.com';
 
