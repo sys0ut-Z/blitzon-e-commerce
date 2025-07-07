@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap'); /* outfit font */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Outfit;
+  font-style: normal;
+  scroll-behavior: smooth;
+}
+
+input:not([type="file"]), textarea, select{
+  outline: none;
+  border: 1px solid rgb(192, 192, 192);
+}
+
+input:not([type="file"]):focus, textarea:focus, select:focus{
+  border: 1px solid #FF073A;
+  caret-color: #FF073A;
+}
+
+textarea{
+  resize: vertical;
+}
+
+@keyframes loading {
+  100%{
+    transform: rotate(360deg);
+  }
+}

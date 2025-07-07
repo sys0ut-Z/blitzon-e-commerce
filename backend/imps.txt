@@ -1,0 +1,2 @@
+1. for cloudinary
+- write all the configurations in one function and call it in your index file(server.js) file

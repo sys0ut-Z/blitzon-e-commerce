@@ -1,0 +1,15 @@
+.footer-bg{
+  background-image: url(../../assets/other/service_img_3.png);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 80px;
+
+  @media (min-width: 768px){
+    height: 550px;
+  }
+
+  @media (max-width: 768px){
+    height: 965px;
+  }
+}

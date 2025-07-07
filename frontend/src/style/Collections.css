@@ -1,0 +1,12 @@
+.stylecheckbox{
+  appearance: none;
+  height: 12px;
+  width: 12px; 
+  border: 1px solid gray !important;
+  border-radius: 9999px;
+  outline: none !important;
+}
+
+.stylecheckbox:checked{
+  background-color: rgb(77, 77, 77);
+}
