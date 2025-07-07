@@ -1,12 +1,12 @@
-import { connectDB } from './config/dbconfig.js';
+import dotenv from 'dotenv'
 dotenv.config();
 
 import express from 'express'
 import cors from 'cors'
-import dotenv from 'dotenv'
 import userRouter from './routes/user.routes.js';
 import cartRouter from './routes/cart.routes.js';
 import adminRouter from './routes/admin.routes.js';
+import { connectDB } from './config/dbconfig.js';
 import { connectCloudinary } from './config/cloudinaryConfig.js';
 import orderRouter from './routes/order.routes.js';
 
