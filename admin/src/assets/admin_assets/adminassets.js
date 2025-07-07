@@ -3,7 +3,8 @@ import order_icon from './order_icon.png'
 import upload_area from './upload_area.png'
 import parcel_icon from './parcel_icon.svg'
 
-export const backend_url = "http://localhost:5300";
+// export const backend_url = "http://localhost:5300";
+export const backend_url = "https://blitzon-e-commerce.onrender.com";
 
 export const admin_assets = {
   add_icon,
