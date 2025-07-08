@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import {assets} from '../../assets/assets.js'
 import {NavLink, useNavigate} from 'react-router-dom'
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -32,6 +32,7 @@ const navbarLinks = [
 const Navbar = ({setShowMenubar, setShowLoginPopup}) => {
   const {token, setToken, getTotalCartAmount, username} = useContext(StoreContext);
   const navigate = useNavigate();
+  const [miniMenu, setMiniMenu] = useState(false);
 
   const logoutHandler = () => {
     setToken(null);
@@ -72,20 +73,24 @@ const Navbar = ({setShowMenubar, setShowLoginPopup}) => {
         {
           token ? 
           <div className='relative group'>
-            <div className='flex gap-2 items-center group-hover:cursor-pointer'>
+            <div className='flex gap-2 items-center group-hover:cursor-pointer'
+            onClick={() => setMiniMenu(prev => !prev)}>
               <img src={assets.profile_icon} alt="profile_icon" className='w-4 lg:w-5' />
               <p className='text-xs lg:text-sm hidden sm:block'>{username}</p>
             </div>
-            <div className='absolute top-6 border right-0 hidden bg-white h-fit w-fit group-hover:flex flex-col justify-center rounded-md'>
-              <p className='flex gap-1 items-center cursor-pointer px-4 py-2 hover:bg-[#ffcbd5] rounded-t-md' onClick={logoutHandler}>
-                <IoLogOutOutline size={15}/>
-                <span>Logout</span>
-              </p>
-              <p className='flex gap-1 items-center cursor-pointer px-4 py-2 hover:bg-[#ffcbd5]' onClick={() => navigate('/orders')}>
-                <LiaBoxSolid size={15}/>
-                <span>Orders</span>
-              </p>
-            </div>
+            {
+              miniMenu &&
+              <div className='absolute top-6 border right-0 bg-white h-fit w-fit flex flex-col justify-center rounded-md'>
+                <p className='flex gap-1 items-center cursor-pointer px-4 py-2 hover:bg-[#ffcbd5] rounded-t-md' onClick={logoutHandler}>
+                  <IoLogOutOutline size={15}/>
+                  <span>Logout</span>
+                </p>
+                <p className='flex gap-1 items-center cursor-pointer px-4 py-2 hover:bg-[#ffcbd5]' onClick={() => navigate('/orders')}>
+                  <LiaBoxSolid size={15}/>
+                  <span>Orders</span>
+                </p>
+              </div>
+            }
           </div> :
           <button className='bg-[#FF073A] px-5 py-[5px] lg:px-6 lg:py-[6px] text-white rounded-full text-xs lg:text-sm
           border-none outline-none'
