@@ -14,30 +14,8 @@ const VerifyPage = () => {
 
   const navigate = useNavigate();
 
-  // const verifyPayment = () => {
-  //   /* 
-  //     ^ below step is important when use has ordered from cart and we have to clear cart items by fetching userId from orderId
-  //   */
-  //   // const response = await axios.post(backend_url+'/api/order/verify', {success, orderId});
-
-  //   if(!success && transactionGoing){
-  //     toast.error("Something went wrong while placing order, pls try again");
-  //     return;
-  //   }
-
-  //   navigate('/orders', {replace: true});
-  //   if(transactionGoing){
-  //     toast.success("Order has been placed successfully");
-  //     setTransactionGoing(false);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   verifyPayment();
-  // }, []);
-
   useEffect(() => {
-    if (success && orderId) {
+    if (success === "true" && orderId) {
       navigate('/orders', { replace: true });
       if (transactionGoing) {
         toast.success("Order has been placed successfully");
