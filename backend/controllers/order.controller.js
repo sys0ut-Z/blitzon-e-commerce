@@ -120,7 +120,7 @@ const placeOrderStripe = async (req, res) => {
 const getAllOrders = async (req, res) => {
   const userId = req.userid;
   try {
-    const allorders = await BlitzOrderModel.find({userId}).sort({createdAt: 1});
+    const allorders = await BlitzOrderModel.find({userId}).sort({createdAt: -1});
 
     res.json({
       success: true,
