@@ -120,7 +120,9 @@ const Footer = () => {
                   {
                     navbarLinks.map(({id, name, link}) => (
                       <li key={id}>
-                        <Link to={link} className='hover:text-[#FC1F23] cursor-pointer'>{name}</Link>
+                        <Link to={link} className='hover:text-[#FC1F23] cursor-pointer'
+                          onClick={() => window.scrollTo(0, 0)}
+                        >{name}</Link>
                       </li>
                     ))
                   }
