@@ -502,9 +502,9 @@ const PlaceOrder = () => {
                   PROCEED TO CONFIRM ORDER
                 </Link>
               ) : (
-                <div className="text-red-500 text-xs sm:text-sm text-center py-2 px-3 sm:py-3 sm:px-6">
-                  Please fill all details to proceed
-                </div>
+                <button className="bg-[#FF073A] py-2 px-3 sm:py-3 sm:px-6 text-white text-xs sm:text-sm text-center">
+                  PROCEED TO CONFIRM ORDER
+                </button>
               )}
             </div>
           </div>
