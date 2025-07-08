@@ -15,7 +15,7 @@ const VerifyPage = () => {
 
   const navigate = useNavigate();
 
-  const verifyPayment = async () => {
+  const verifyPayment = () => {
     /* 
       ^ below step is important when use has ordered from cart and we have to clear cart items by fetching userId from orderId
     */
