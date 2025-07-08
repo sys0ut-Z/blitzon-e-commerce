@@ -215,9 +215,9 @@ const PlaceOrder = () => {
                   className='bg-[#FF073A] py-2 px-3 sm:py-3 sm:px-6 text-white text-xs sm:text-sm text-center'>
                   PROCEED TO CONFIRM ORDER
                 </Link> :
-                <button type="submit">
-                  PROCEED TO CONFIRM ORDER
-                </button>
+                <div className='text-red-500 text-xs sm:text-sm text-center py-2 px-3 sm:py-3 sm:px-6'>
+                  Pls Fill all Details to Proceed
+                </div>
               }
             </div>
           </div>
