@@ -49,12 +49,7 @@ function App() {
               } />
             <Route path="/orders" element={<Orders />} />
 
-            <Route path="/verify" 
-              element={
-                <ProtectedRoute>
-                  <VerifyPage />
-                </ProtectedRoute>
-              } />
+            <Route path="/verify" element={<VerifyPage />} />
 
             <Route path="/orders" element={<Orders />} />
             <Route path="/partners/:id" element={<Partners />} />
