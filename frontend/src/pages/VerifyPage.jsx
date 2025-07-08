@@ -26,8 +26,8 @@ const VerifyPage = () => {
       return;
     }
 
+    navigate('/orders', {replace: true});
     if(transactionGoing){
-      navigate('/orders', {replace: true});
       toast.success("Order has been placed successfully");
       setTransactionGoing(false);
     }

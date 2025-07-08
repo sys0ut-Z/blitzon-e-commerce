@@ -40,8 +40,6 @@ const ConfirmOrder = () => {
       
       // console.log("frontend 2");
       window.location.replace(response.data.session_url);
-      toast.success(response.data.message);
-      setTransactionGoing(false);
       // console.log("frontend 3");
     }
   }
