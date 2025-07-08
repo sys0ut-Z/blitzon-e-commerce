@@ -156,6 +156,7 @@ const Footer = () => {
                         state={{
                           name, image, character, review
                         }}
+                        onClick={() => window.scrollTo(0, 0)}
                       >
                         {name}
                       </Link>
