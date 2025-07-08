@@ -69,7 +69,7 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
   }
 
   useEffect(() => {
-    if(!showLoginPopup){
+    if(!showLoginPopup || loginState){
       setDetails({
         username: "",
         email: "",
