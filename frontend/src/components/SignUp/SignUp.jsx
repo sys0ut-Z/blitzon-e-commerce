@@ -40,24 +40,14 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
       setShowLoginPopup(false);
       if(!response.data.success){
         toast.error(response.data.message);
-        setDetails({
-          username: "",
-          email:"",
-          password:"",
-        })
         return;
       }
 
       // set token in local storage
       sessionStorage.setItem("token", response.data.token);
       setToken(response.data.token);
+      
       toast.success(response.data.message);
-
-      setDetails({
-        username: "",
-        email:"",
-        password:"",
-      })
     }
     else{
       const response = await axios.post(backend_url+'/api/user/login', {
@@ -75,14 +65,18 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
       sessionStorage.setItem("token", response.data.token);
       setToken(response.data.token);
       toast.success(response.data.message);
-
-      setDetails({
-        username: "",
-        email:"",
-        password:"",
-      })
     }
   }
+
+  useEffect(() => {
+    if(!showLoginPopup){
+      setDetails({
+        username: "",
+        email: "",
+        password: "",
+      })
+    }
+  }, [showLoginPopup]);
 
   return (
     <div className={`fixed ${showLoginPopup ? "block" : "hidden"} top-0 left-0 z-50 bg-black/65 min-h-screen min-w-[100%] backdrop-blur-sm`}>
