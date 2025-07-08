@@ -48,7 +48,7 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
       }
 
       // set token in local storage
-      localStorage.setItem("token", response.data.token);
+      sessionStorage.setItem("token", response.data.token);
       setToken(response.data.token);
       setShowLoginPopup(false);
       toast.success(response.data.message);
@@ -70,7 +70,7 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
       }
       
       // set token in local storage
-      localStorage.setItem("token", response.data.token);
+      sessionStorage.setItem("token", response.data.token);
       setToken(response.data.token);
       setShowLoginPopup(false);
       toast.success(response.data.message);

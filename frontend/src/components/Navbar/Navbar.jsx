@@ -35,7 +35,7 @@ const Navbar = ({setShowMenubar, setShowLoginPopup}) => {
 
   const logoutHandler = () => {
     setToken(null);
-    localStorage.clear("token");
+    sessionStorage.clear("token");
   }
 
   return (
