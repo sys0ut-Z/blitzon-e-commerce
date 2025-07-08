@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import '../style/Collections.css'
 import ProductItem from '../components/Products/ProductItem.jsx'
 import { assets, backend_url } from '../assets/assets.js'
+import Loader from '../util/Loader.jsx'
 import { toast } from 'react-toastify'
 import axios from 'axios'
-import Loader from '../util/Loader.jsx'
 
 const Collections = () => {
   

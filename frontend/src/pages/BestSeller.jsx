@@ -3,7 +3,6 @@ import ProductItem from '../components/Products/ProductItem.jsx';
 import { backend_url } from '../assets/assets.js';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { StoreContext } from '../context/StoreContextProvider.jsx';
 import Loader from '../util/Loader.jsx';
 
 const BestSeller = () => {

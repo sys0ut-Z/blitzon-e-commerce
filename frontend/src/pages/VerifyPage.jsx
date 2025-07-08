@@ -1,11 +1,9 @@
 import axios from 'axios'
-import React, { useContext } from 'react'
-import { useEffect } from 'react'
-// import { backend_url } from '../assets/assets.js'
+import React, { useContext, useEffect } from 'react'
 import { StoreContext } from '../context/StoreContextProvider.jsx';
 import {useNavigate, useSearchParams} from 'react-router-dom';
 import {toast} from 'react-toastify';
-import NotAccessPage from '../NotAccessPage.jsx';
+import NotAccessPage from '../util/NotAccessPage.jsx';
 
 const VerifyPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();

@@ -1,13 +1,10 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { StoreContext } from '../context/StoreContextProvider.jsx'
-import { useState } from 'react';
-import axios from 'axios';
 import { assets, backend_url } from '../assets/assets.js';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import NotAccessPage from '../NotAccessPage.jsx';
-import OrderAlreadyPlaced from '../OrderAlreadyPlaced.jsx';
-import {useForm} from 'react-hook-form'
-import Validator from 'validator'
+import NotAccessPage from '../util/NotAccessPage.jsx';
+import OrderAlreadyPlaced from '../util/OrderAlreadyPlaced.jsx';
+import axios from 'axios';
 
 // TODO : once user enters address, save/show in profile so that he/she would not have to enter the address again
 const PlaceOrder = () => {

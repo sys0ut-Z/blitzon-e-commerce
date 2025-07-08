@@ -1,14 +1,13 @@
 import React from 'react'
 import { useContext } from 'react'
 import { StoreContext } from '../context/StoreContextProvider.jsx'
-import NotAccessPage from '../NotAccessPage.jsx';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import NotAccessPage from '../util/NotAccessPage.jsx';
+import { useState, useEffect } from 'react';
+import { backend_url } from '../assets/assets.js';
 import axios from 'axios';
-import { backend_url } from '../assets/assets';
 import { toast } from 'react-toastify';
 import parcel_icon from '../assets/other/parcel_icon.png'
-import NoOrdersPage from '../NoOrdersPage.jsx';
+import NoOrdersPage from '../util/NoOrdersPage.jsx';
 import Loader from '../util/Loader.jsx';
 
 const Orders = () => {

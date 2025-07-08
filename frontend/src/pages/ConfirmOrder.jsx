@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../context/StoreContextProvider.jsx';
-import NotAccessPage from '../NotAccessPage.jsx';
+import NotAccessPage from '../util/NotAccessPage.jsx';
 import { backend_url } from '../assets/assets.js';
-import OrderAlreadyPlaced from '../OrderAlreadyPlaced.jsx'
+import OrderAlreadyPlaced from '../util/OrderAlreadyPlaced.jsx'
 import { toast } from 'react-toastify';
 import axios from 'axios';
 

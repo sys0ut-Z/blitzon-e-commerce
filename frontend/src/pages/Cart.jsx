@@ -3,8 +3,8 @@ import { StoreContext } from '../context/StoreContextProvider.jsx'
 import { backend_url } from '../assets/assets.js';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import EmptyCart from '../EmptyCart.jsx'
-import NotAccesPage from '../NotAccessPage.jsx'
+import EmptyCart from '../util/EmptyCart.jsx'
+import NotAccesPage from '../util/NotAccessPage.jsx'
 
 const Cart = () => {
   const {cartItems, removeFromCart} = useContext(StoreContext);

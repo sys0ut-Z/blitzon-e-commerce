@@ -9,8 +9,8 @@ import {StoreContext} from '../context/StoreContextProvider.jsx'
 import ProductItem from '../components/Products/ProductItem.jsx';
 import PromotionBox from '../util/PromotionBox.jsx';
 import axios from 'axios';
+import NotAccessPage from '../util/NotAccessPage.jsx';
 import { toast } from 'react-toastify';
-import NotAccessPage from '../NotAccessPage.jsx';
 
 const serviceIcons = [
   {

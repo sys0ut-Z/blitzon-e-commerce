@@ -1,6 +1,6 @@
 import React from 'react'
-import { assets } from '../assets/assets'
-import PromotionBox from '../util/PromotionBox'
+import { assets } from '../assets/assets.js'
+import PromotionBox from '../util/PromotionBox.jsx'
 
 const AboutUs = () => {
   return (

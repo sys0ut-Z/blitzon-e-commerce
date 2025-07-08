@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import { StoreContext } from './context/StoreContextProvider.jsx'
+import { StoreContext } from '../context/StoreContextProvider.jsx'
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({children}) => {
