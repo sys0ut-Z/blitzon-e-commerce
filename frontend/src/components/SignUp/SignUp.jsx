@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 
 const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
   const [loginState, setLoginState] = useState("Sign Up");
+  const [checkbox, setCheckbox] = useState(false);
 
   const {setToken} = useContext(StoreContext);
   const [details, setDetails] = useState({
@@ -75,6 +76,7 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
         email: "",
         password: "",
       })
+      setCheckbox(false);
     }
   }, [showLoginPopup, loginState]);
 
@@ -101,12 +103,12 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
             name="password" onChange={changeHandler}/>
         </div>
         <div className='text-xs flex items-center justify-start gap-1'>
-          <input type="checkbox" required/>
+          <input type="checkbox" required value={checkbox} onChange={() => setCheckbox(prev => !prev)}/>
           By clicking, you agree to our terms and conditions
         </div>
         <p className='text-xs pt-3 flex gap-[3px] sm:gap-[4px] items-center'>
           <span>{loginState === "Sign Up" ? "Alredy have an account?" : "New User?, Create a new Account"}</span>
-          <span className='cursor-pointer text-red-500' 
+          <span className='cursor-pointer text-red-500'
             onClick={() => setLoginState(loginState === "Sign Up" ? "Login" : "Sign Up")}>
               {loginState === "Sign Up" ? "Login" : "Sign Up"}</span>
         </p>

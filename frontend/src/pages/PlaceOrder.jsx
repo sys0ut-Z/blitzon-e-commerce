@@ -77,7 +77,7 @@ const PlaceOrder = () => {
   }
 
   return token && transactionGoing && item ? (
-    <form className='py-[60px] sm:py-[70px] min-h-screen min-w-[100%] flex justify-center' method="post">
+    <form className='py-[60px] sm:py-[70px] min-h-screen min-w-[100%] flex justify-center' method="post" onSubmit={(e) => {e.preventDefault()}}>
       {/* place-order */}
       <div className='flex flex-col justify-between items-start gap-[30px]'>
 
@@ -140,7 +140,7 @@ const PlaceOrder = () => {
           </div>
 
           {/* Order Details */}
-          <div className='w-[max(30vw,313px)]'>
+          <div className='w-full sm:w-[max(30vw,425px)]'>
             <h2 className='text-xl md:text-2xl font-bold pb-3 tracking-wide'>Order Totals</h2>
             <hr />
             <div>
@@ -161,15 +161,17 @@ const PlaceOrder = () => {
               </div>
             </div>
             <div className='mt-3 flex justify-center'>
-              <Link to="/confirm-order" state={{
-                item,
-                address,
-                paymentMethod,
-                delivery_fee : paymentMethod === "cod" ? 10 : 0,
-              }}
-                className='bg-[#FF073A] py-2 px-3 sm:py-3 sm:px-6 text-white text-xs sm:text-sm text-center'>
-                PROCEED TO CONFIRM ORDER
-              </Link>
+              <button type="submit">
+                <Link to="/confirm-order" state={{
+                  item,
+                  address,
+                  paymentMethod,
+                  delivery_fee : paymentMethod === "cod" ? 10 : 0,
+                }}
+                  className='bg-[#FF073A] py-2 px-3 sm:py-3 sm:px-6 text-white text-xs sm:text-sm text-center'>
+                  PROCEED TO CONFIRM ORDER
+                </Link>
+              </button>
             </div>
           </div>
         </div>
