@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import NotAccessPage from '../util/NotAccessPage.jsx';
 import OrderAlreadyPlaced from '../util/OrderAlreadyPlaced.jsx';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 // TODO : once user enters address, save/show in profile so that he/she would not have to enter the address again
 const PlaceOrder = () => {
@@ -35,10 +36,26 @@ const PlaceOrder = () => {
     residence: ""
   });
 
+  const [checkDetails, setCheckDetails] = useState({
+    fistname: false,
+    lastname: false,
+    email: false,
+    street: false,
+    city: false,
+    state: false,
+    zipcode: address.zipcode ? true : false,
+    country: false,
+    phone: false,
+    residence: false,
+  })
+
+  const [allDetailsFilled, setAllDetailsFilled] = useState(false);
+
   const changeHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
+    setCheckDetails(prev => ({...prev, [name]:true}));
     setAddress(prev => ({...prev, [name]:value}));
   }
 
@@ -57,8 +74,10 @@ const PlaceOrder = () => {
 
     if(value.length < 7 || value.length > 15 || !flag){
       setPhoneError("Pls enter a valid Phone No.");
+      setCheckDetails(prev => ({...prev, email: false}))
     }
     else{
+      setCheckDetails(prev => ({...prev, email: true}))
       setPhoneError(null);
     }
   }
@@ -76,8 +95,32 @@ const PlaceOrder = () => {
     }
   }
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    for(const field in checkDetails){
+      if(!checkDetails[field]){
+        setAllDetailsFilled(false);
+        toast.error("Pls fill all the details");
+        return;
+      }
+    }
+
+    setAllDetailsFilled(true);
+  }
+
+  useEffect(() => {
+    for(const field in checkDetails){
+      if(!checkDetails[field]){
+        setAllDetailsFilled(false);
+        return;
+      }
+    }
+
+    setAllDetailsFilled(true);
+  }, [address]);
+
   return token && transactionGoing && item ? (
-    <form className='py-[60px] sm:py-[70px] min-h-screen min-w-[100%] flex justify-center' method="post" onSubmit={(e) => {e.preventDefault()}}>
+    <form className='py-[60px] sm:py-[70px] min-h-screen min-w-[100%] flex justify-center' method="post" onSubmit={submitHandler}>
       {/* place-order */}
       <div className='flex flex-col justify-between items-start gap-[30px]'>
 
@@ -161,7 +204,8 @@ const PlaceOrder = () => {
               </div>
             </div>
             <div className='mt-3 flex justify-center'>
-              <button type="submit">
+              {
+                allDetailsFilled ?           
                 <Link to="/confirm-order" state={{
                   item,
                   address,
@@ -170,8 +214,11 @@ const PlaceOrder = () => {
                 }}
                   className='bg-[#FF073A] py-2 px-3 sm:py-3 sm:px-6 text-white text-xs sm:text-sm text-center'>
                   PROCEED TO CONFIRM ORDER
-                </Link>
-              </button>
+                </Link> :
+                <button type="submit">
+                  PROCEED TO CONFIRM ORDER
+                </button>
+              }
             </div>
           </div>
         </div>
