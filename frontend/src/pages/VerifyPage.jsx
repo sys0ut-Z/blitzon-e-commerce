@@ -14,35 +14,49 @@ const VerifyPage = () => {
 
   const navigate = useNavigate();
 
-  const verifyPayment = () => {
-    /* 
-      ^ below step is important when use has ordered from cart and we have to clear cart items by fetching userId from orderId
-    */
-    // const response = await axios.post(backend_url+'/api/order/verify', {success, orderId});
+  // const verifyPayment = () => {
+  //   /* 
+  //     ^ below step is important when use has ordered from cart and we have to clear cart items by fetching userId from orderId
+  //   */
+  //   // const response = await axios.post(backend_url+'/api/order/verify', {success, orderId});
 
-    if(!success && transactionGoing){
-      toast.error("Something went wrong while placing order, pls try again");
-      return;
-    }
+  //   if(!success && transactionGoing){
+  //     toast.error("Something went wrong while placing order, pls try again");
+  //     return;
+  //   }
 
-    navigate('/orders', {replace: true});
-    if(transactionGoing){
-      toast.success("Order has been placed successfully");
-      setTransactionGoing(false);
-    }
-  }
+  //   navigate('/orders', {replace: true});
+  //   if(transactionGoing){
+  //     toast.success("Order has been placed successfully");
+  //     setTransactionGoing(false);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   verifyPayment();
+  // }, []);
 
   useEffect(() => {
-    verifyPayment();
+    if (success && orderId) {
+      navigate('/orders', { replace: true });
+      if (transactionGoing) {
+        toast.success("Order has been placed successfully");
+        setTransactionGoing(false);
+      }
+    } else {
+      toast.error("Invalid attempt or expired session.");
+      navigate('/');
+    }
   }, []);
 
-  return token && transactionGoing ? (
+
+  return token ? (
     <div className='min-h-screen min-w-[100%] flex justify-center items-center'>
       <div className='h-[100px] w-[100px] border-2 border-y-red-500 rounded-full animate-[loading_1s_linear_infinite]'>
 
       </div>
     </div>
-  ) : !token ? <ErrorPage /> : <NotAccessPage />
+  ) : <NotAccessPage />
 }
 
 export default VerifyPage
