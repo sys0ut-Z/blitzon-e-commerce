@@ -33,7 +33,7 @@ const Orders = () => {
       setLoader(true);
       fetchOrders();
     }
-  }, []);
+  }, [token]);
 
   // TODO : if multiple items in same order then show box logo and make a sperate route '/order-details', to view all items of order
   return token ? (
