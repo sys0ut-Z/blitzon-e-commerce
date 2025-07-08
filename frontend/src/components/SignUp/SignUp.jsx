@@ -16,7 +16,7 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
     password: ""
   })
 
-  const changeHalndler = (e) => {
+  const changeHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
@@ -76,7 +76,7 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
         password: "",
       })
     }
-  }, [showLoginPopup]);
+  }, [showLoginPopup, loginState]);
 
   return (
     <div className={`fixed ${showLoginPopup ? "block" : "hidden"} top-0 left-0 z-50 bg-black/65 min-h-screen min-w-[100%] backdrop-blur-sm`}>
@@ -90,15 +90,15 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
           {
             loginState === "Sign Up" ?
             <input type="text" className='border !border-gray-300 focus:!border-[#FF073A] 
-              w-full !py-1 !px-3 outline-none !rounded-full caret-[#FF073A]' placeholder='Full Name' required
-              name="username" onChange={changeHalndler}/> : null
+              w-full !py-1 !px-3 outline-none !rounded-full caret-[#FF073A]' placeholder='Full Name' required value={details.username}
+              name="username" onChange={changeHandler}/> : null
           }
           <input type="text" className='border !border-gray-300 focus:!border-[#FF073A] 
-            w-full !py-1 !px-3 outline-none !rounded-full caret-[#FF073A]' placeholder='Email' required
-            name="email" onChange={changeHalndler}/>
+            w-full !py-1 !px-3 outline-none !rounded-full caret-[#FF073A]' placeholder='Email' required value={details.email}
+            name="email" onChange={changeHandler}/>
           <input type="password" className='border !border-gray-300 focus:!border-[#FF073A] 
-            w-full !py-1 !px-3 outline-none !rounded-full caret-[#FF073A]' placeholder='Password' required
-            name="password" onChange={changeHalndler}/>
+            w-full !py-1 !px-3 outline-none !rounded-full caret-[#FF073A]' placeholder='Password' required value={details.password}
+            name="password" onChange={changeHandler}/>
         </div>
         <div className='text-xs flex items-center justify-start gap-1'>
           <input type="checkbox" required/>
