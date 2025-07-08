@@ -2,7 +2,7 @@ import BlitzOrderModel from '../models/order.model.js'
 import BlitzUserModel from '../models/user.model.js'
 import Stripe from 'stripe';
 
-const frontend_url = "http://localhost:5173";
+const frontend_url = "https://blitzon-ecommerce.vercel.app";
 const stripe = new Stripe("sk_test_51RYRdtH0uEzDOASym9SI0I6qRkLsU3gKQ1TP5pFf8f9db7mPA7vSITEszt1iwalMA6zNzuKiKfuD8YC0ed9dt93F0064Kf4iPZ");
 
 // TODO : make separate controllers for multiple items(cod or stripe)

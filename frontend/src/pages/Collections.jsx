@@ -43,7 +43,7 @@ const Collections = () => {
       console.error(error.message);
     }
   }
-  
+
   useEffect(() => {
     setLoader(true);
     fetchProducts();
@@ -78,6 +78,11 @@ const Collections = () => {
         <div className='w-full sm:w-[20%] min-h-[100px] sm:min-h-screen border-r border-r-gray-200 px-3'>
           <h1 className='text-xl md:text-2xl py-5'>Categories</h1>
           <div className='sm:space-y-1 md:space-y-2 flex sm:flex-col flex-wrap gap-3'>
+            <div className='flex gap-2 items-center text-xs sm:text-sm w-full'>
+              <button className='bg-black px-3 lg:px-6 py-1 text-white rounded-full text-xs lg:text-sm'
+                onClick={() => setCategory("")}
+              >Clear Filter</button>
+            </div>
             {
               ["headphone", "keyboard", "mice", "monitor", "laptop"].map((inputtext, id) => (
                 <div key={id} className='flex gap-2 items-center text-xs sm:text-sm'>
