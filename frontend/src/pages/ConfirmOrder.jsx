@@ -39,7 +39,7 @@ const ConfirmOrder = () => {
       }
       
       // console.log("frontend 2");
-      window.location.replace(response.data.session_url);
+      window.location.href = response.data.session_url;
       // console.log("frontend 3");
     }
   }
