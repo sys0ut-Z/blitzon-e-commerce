@@ -53,7 +53,7 @@ const Orders = ({admintoken}) => {
     <div className='py-9 flex justify-center'>
       {
         !loader && orders.length > 0 ?
-        <div>
+        <div className='px-4 sm:px-6'>
           <h1 className='text-2xl sm:text-3xl font-semibold tracking-wide sm:tracking-wider text-center pb-6'>Your Orders</h1>
           <div className={`${orders.length > 1 ? "grid grid-cols-1 w-fit [@media(min-width:1513px)]:grid-cols-2 gap-9 sm:gap-7" : "flex justify-center"}`}>
             {
