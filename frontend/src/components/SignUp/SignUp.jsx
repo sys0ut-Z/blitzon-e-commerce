@@ -37,6 +37,7 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
         password: details.password
       });
 
+      setShowLoginPopup(false);
       if(!response.data.success){
         toast.error(response.data.message);
         setDetails({
@@ -50,8 +51,13 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
       // set token in local storage
       sessionStorage.setItem("token", response.data.token);
       setToken(response.data.token);
-      setShowLoginPopup(false);
       toast.success(response.data.message);
+
+      setDetails({
+        username: "",
+        email:"",
+        password:"",
+      })
     }
     else{
       const response = await axios.post(backend_url+'/api/user/login', {
@@ -59,21 +65,22 @@ const SignUp = ({showLoginPopup, setShowLoginPopup}) => {
         password: details.password
       });
       
+      setShowLoginPopup(false);
       if(!response.data.success){
         toast.error(response.data.message);
-        setDetails({
-          username: "",
-          email:"",
-          password:"",
-        })
         return;
       }
       
       // set token in local storage
       sessionStorage.setItem("token", response.data.token);
       setToken(response.data.token);
-      setShowLoginPopup(false);
       toast.success(response.data.message);
+
+      setDetails({
+        username: "",
+        email:"",
+        password:"",
+      })
     }
   }
 
