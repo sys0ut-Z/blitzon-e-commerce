@@ -2,9 +2,6 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
-  "vercel": {
-    "config": "./vercel.json"
-  },
   "type": "module",
   "scripts": {
     "dev": "vite",
