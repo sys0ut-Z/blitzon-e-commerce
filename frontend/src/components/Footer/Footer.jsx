@@ -132,14 +132,21 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Link Section 2 */}
-              <div className='space-y-5'>
-                <h1 className='text-xl sm:text-2xl tracking-wide font-semibold'>More Products</h1>
+              {/* Partners */}
+              <div className='col-span-1 space-y-4 sm:space-y-5'>
+                <h1 className='text-xl sm:text-2xl tracking-wide font-semibold'>Business Partners</h1>
                 <ul className='flex flex-col gap-4 text-xs sm:text-sm tracking-wide'>
                   {
-                    ["Mic", "Speakers", "Mouse Pad", "PC Cabinets", "I Pad"].map((item, id) => (
+                    businessPartners.map(({id, name, image, character, review}) => (
                       <li key={id}>
-                        <span className='cursor-pointer hover:text-[#FC1F23]'>{item}</span>
+                        <Link to={`/partners/${id}`} className='hover:text-[#FC1F23] cursor-pointer'
+                          state={{
+                            name, image, character, review
+                          }}
+                          onClick={() => window.scrollTo(0, 0)}
+                        >
+                          {name}
+                        </Link>
                       </li>
                     ))
                   }
@@ -147,21 +154,14 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Partners */}
-            <div className='col-span-2 sm:col-span-1 space-y-4 sm:space-y-5'>
-              <h1 className='text-xl sm:text-2xl tracking-wide font-semibold'>Business Partners</h1>
+            {/* Link Section 2 */}
+            <div className='col-span-2 sm:col-span-1 space-y-5'>
+              <h1 className='text-xl sm:text-2xl tracking-wide font-semibold'>More Products</h1>
               <ul className='flex flex-col gap-4 text-xs sm:text-sm tracking-wide'>
                 {
-                  businessPartners.map(({id, name, image, character, review}) => (
+                  ["Mic", "Speakers", "Mouse Pad", "PC Cabinets", "I Pad"].map((item, id) => (
                     <li key={id}>
-                      <Link to={`/partners/${id}`} className='hover:text-[#FC1F23] cursor-pointer'
-                        state={{
-                          name, image, character, review
-                        }}
-                        onClick={() => window.scrollTo(0, 0)}
-                      >
-                        {name}
-                      </Link>
+                      <span className='cursor-pointer hover:text-[#FC1F23]'>{item}</span>
                     </li>
                   ))
                 }
@@ -175,6 +175,9 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} Blitzon Pvt. Ltd, All rights reserved --
             </p>
           </div>
+        </div>
+        <div className='absolute bottom-10 sm:bottom-6 left-1/2 -translate-x-1/2 text-xs md:text-sm xl:text-base text-white tracking-wide text-center'>
+          MADE BY ZANKHAN, AMBITIOUS & ANONYMOUS CODER😎🔥
         </div>
       </div>
     </div>
