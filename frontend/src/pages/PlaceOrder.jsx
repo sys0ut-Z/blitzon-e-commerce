@@ -458,6 +458,13 @@ const PlaceOrder = () => {
                 <img src={assets.stripe_logo} alt="stripe_logo" />
               </div>
             </div>
+            {
+              paymentMethod === "stripe" &&
+              <div className='py-2 sm:pl-[51%] text-red-500 text-xs min-[1617px]:text-sm'>
+                This is test mode of Stripe, <br />
+                pls use test cards : 4242 4242 4242 4242
+              </div>
+            }
           </div>
 
           {/* Order Details */}
