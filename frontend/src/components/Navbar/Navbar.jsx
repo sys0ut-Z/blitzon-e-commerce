@@ -37,8 +37,13 @@ const Navbar = ({setShowMenubar, setShowLoginPopup}) => {
   const logoutHandler = () => {
     setToken(null);
     sessionStorage.clear("token");
+    setMiniMenu(false);
   }
 
+  const orderHandler = () => {
+    navigate('/orders');
+    setMiniMenu(false);
+  }
   return (
     <div className='flex justify-between items-center text-xs lg:text-sm py-1'>
       <div>
@@ -85,7 +90,7 @@ const Navbar = ({setShowMenubar, setShowLoginPopup}) => {
                   <IoLogOutOutline size={15}/>
                   <span>Logout</span>
                 </p>
-                <p className='flex gap-1 items-center cursor-pointer px-4 py-2 hover:bg-[#ffcbd5]' onClick={() => navigate('/orders')}>
+                <p className='flex gap-1 items-center cursor-pointer px-4 py-2 hover:bg-[#ffcbd5]' onClick={orderHandler}>
                   <LiaBoxSolid size={15}/>
                   <span>Orders</span>
                 </p>

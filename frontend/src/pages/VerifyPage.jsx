@@ -30,7 +30,7 @@ const VerifyPage = () => {
 
   {
     /* 
-      ! token will be cleared from local storage after stripe payment
+      ! token will be cleared from session local/storage after stripe payment
     */
   }
   return token && transactionGoing ? (
