@@ -8,7 +8,7 @@ export const StoreContext = createContext();
 const StoreContextProvider = ({children}) => {
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState(
-    sessionStorage.getItem("token") ? sessionStorage.getItem("token") : null
+    localStorage.getItem("token") ? localStorage.getItem("token") : null
   )
   const [username, setUsername] = useState("");
   const [transactionGoing, setTransactionGoing] = useState(false);

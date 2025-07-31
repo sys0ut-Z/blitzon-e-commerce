@@ -18,8 +18,8 @@ const Login = ({setAdminToken, setShowLoginPopup}) => {
       setPassword("");
       return;
     }
-    // set admin token in sessionStorage
-    sessionStorage.setItem("admintoken", response.data.admintoken);
+    // set admin token in localStorage
+    localStorage.setItem("admintoken", response.data.admintoken);
     setAdminToken(response.data.admintoken);
 
     setShowLoginPopup(false);

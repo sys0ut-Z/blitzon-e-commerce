@@ -10,7 +10,7 @@ import Login from './components/Login/Login.jsx'
 
 function App() {
   const [admintoken, setAdminToken] = useState(
-    sessionStorage.getItem("admintoken") ? sessionStorage.getItem("admintoken") : null
+    localStorage.getItem("admintoken") ? localStorage.getItem("admintoken") : null
   );
 
   const [showLoginPopup, setShowLoginPopup] = useState(false);
