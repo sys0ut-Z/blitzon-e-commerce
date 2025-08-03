@@ -29,10 +29,11 @@ const navbarLinks = [
     link: '/aboutus'
   },
 ]
+
 const Navbar = ({setShowMenubar, setShowLoginPopup}) => {
   const {token, setToken, getTotalCartAmount, username} = useContext(StoreContext);
   const navigate = useNavigate();
-  const [miniMenu, setMiniMenu] = useState(false);
+  // const [miniMenu, setMiniMenu] = useState(false);
 
   const logoutHandler = () => {
     setToken(null);
@@ -78,14 +79,12 @@ const Navbar = ({setShowMenubar, setShowLoginPopup}) => {
         {
           token ? 
           <div className='relative group'>
-            <div className='flex gap-2 items-center group-hover:cursor-pointer'
-            onClick={() => setMiniMenu(prev => !prev)}>
+            <div className='flex gap-2 items-center group-hover:cursor-pointer'>
               <img src={assets.profile_icon} alt="profile_icon" className='w-4 lg:w-5' />
               <p className='text-xs lg:text-sm hidden sm:block'>{username}</p>
             </div>
             {
-              miniMenu &&
-              <div className='absolute top-6 border right-0 bg-white h-fit w-fit flex flex-col justify-center rounded-md'>
+              <div className='hidden group-hover:flex absolute top-6 border right-0 bg-white h-fit w-fit flex-col justify-center rounded-md'>
                 <p className='flex gap-1 items-center cursor-pointer px-4 py-2 hover:bg-[#ffcbd5] rounded-t-md' onClick={logoutHandler}>
                   <IoLogOutOutline size={15}/>
                   <span>Logout</span>
