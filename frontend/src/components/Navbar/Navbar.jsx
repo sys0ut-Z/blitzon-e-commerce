@@ -70,7 +70,7 @@ const Navbar = ({setShowMenubar, setShowLoginPopup}) => {
           <div className='relative z-10'>
             <img src={assets.basket_icon} className='w-4 lg:w-5 cursor-pointer' onClick={() => navigate('/cart')}/>
             {
-              getTotalCartAmount() > 0 ?
+              token && getTotalCartAmount() > 0 ?
               <div className='absolute w-[7px] h-[7px] text-[3px] bg-[#FC1273] -top-1 right-0 rounded-full'>
               </div> : null
             }
