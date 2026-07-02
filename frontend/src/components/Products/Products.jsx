@@ -5,28 +5,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import Loader from '../../util/Loader.jsx';
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [loader, setLoader] = useState(false);
-
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get(backend_url+'/api/user/all-products');
-      setLoader(false);
-      if (response.data.success) {
-        setProducts(response.data.allproducts);
-      }
-    } catch (error) {
-      toast.error(error.message);
-      console.error(error.message);
-    }
-  }
-  
-  useEffect(() => {
-    setLoader(true);
-    fetchProducts();
-  }, []);
-
+const Products = ({products, loader}) => {
   return !loader ? (
     <div className='py-[60px]'>
       <h1 className='text-center text-3xl md:text-4xl pb-3 font-bold tracking-wide sm:tracking-wider'>Explore Products</h1>

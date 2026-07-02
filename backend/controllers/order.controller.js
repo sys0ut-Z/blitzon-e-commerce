@@ -2,9 +2,9 @@ import BlitzOrderModel from '../models/order.model.js'
 import BlitzUserModel from '../models/user.model.js'
 import Stripe from 'stripe';
 
-const frontend_url = "https://blitzon-e-commerce.vercel.app";
-// const frontend_url = "http://localhost:5173"
-const stripe = new Stripe("sk_test_51RYRdtH0uEzDOASym9SI0I6qRkLsU3gKQ1TP5pFf8f9db7mPA7vSITEszt1iwalMA6zNzuKiKfuD8YC0ed9dt93F0064Kf4iPZ");
+const frontend_url = process.env.NODE_ENV === 'production' ? "https://blitzon-e-commerce.vercel.app" : "http://localhost:5173";
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // TODO : make separate controllers for multiple items(cod or stripe)
 const placeOrderCOD = async (req, res) => {
@@ -48,7 +48,7 @@ const placeOrderStripe = async (req, res) => {
     let orderItems = {
       userId: userid,
       payment:"stripe",
-      paymentdone: true,
+      paymentdone: false,
       status: "Processing",
       amount: (item.price * item.quantity) + 0, // no delivery charge in stripe
       items : [ item ],
@@ -68,7 +68,7 @@ const placeOrderStripe = async (req, res) => {
           product_data: {
             name: item.productname,
           },
-          unit_amount: item.price * 100, // ^ converts paise to rupees
+          unit_amount: item.price * 100, // ^ converts rupees to paise
         },
         quantity: item.quantity,
       },

@@ -51,7 +51,7 @@ const Collections = () => {
 
   useEffect(() => {
     filterProducts();
-  }, [searchText, category, setCategory]);
+  }, [searchText, category]);
 
   useEffect(() => {
     if(category.length > 0 && searchText.length > 0){

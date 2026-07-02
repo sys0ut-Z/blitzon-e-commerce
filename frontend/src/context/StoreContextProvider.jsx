@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from 'react'
-// import { products } from '../assets/assets.js';
 import {toast} from 'react-toastify'
 import axios from 'axios'
 import {backend_url} from '../assets/assets.js'
@@ -17,18 +16,16 @@ const StoreContextProvider = ({children}) => {
     // ~ PREREQUISITE : all the products must be added in database to fetch correct _id
     if(token){
       if(!cartItems[itemId]){
-        setCartItems(prev => ({...prev, [itemId]:quantity}));
+        setCartItems(prev => ({...prev, [itemId]: quantity}));
       }
       else{
-        setCartItems(prev => ({...prev, [itemId]:prev[itemId]+quantity}));
+        setCartItems(prev => ({...prev, [itemId]: prev[itemId]+quantity}));
       }
 
       const response = await axios.post(backend_url+'/api/cart/add-to-cart', {itemId}, {headers: {token}});
 
-      if(!response.data.success){
-        toast.error(response.data.message);
-        return;
-      }
+      if(!response.data.success)
+        return toast.error(response.data.message);
 
       toast.success(response.data.message);
     }

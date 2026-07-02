@@ -16,6 +16,7 @@ const Cart = () => {
   const [loader, setLoader] = useState(false);
 
   const fetchProducts = async () => {
+    setLoader(true);
     try {
       const response = await axios.get(backend_url+'/api/user/all-products');
 
@@ -47,12 +48,11 @@ const Cart = () => {
   }
 
   useEffect(() => {
-    setLoader(true);
     window.scrollTo(0, 0);
     fetchProducts();
   }, []);
 
-  return token && loader ? <Loader /> : token && cart ? (
+  return token && loader ? <Loader /> : cart ? (
     <div className='py-10 text-[10px] leading-[13px] sm:text-sm'>
       {/* Cart Headings */}
       <div className='grid grid-cols-[0.7fr_2fr_0.7fr_1.1fr_0.5fr] text-center pb-3 font-semibold sm:text-base'>

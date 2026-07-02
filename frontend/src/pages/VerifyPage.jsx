@@ -17,14 +17,12 @@ const VerifyPage = () => {
   useEffect(() => {
     if (success === "true" && orderId) {
       navigate('/orders', { replace: true });
-      if (transactionGoing) {
-        toast.success("Order has been placed successfully");
-        setTransactionGoing(false);
-      }
+      toast.success("Order has been placed successfully");
     } else {
       toast.error("Invalid attempt or expired session.");
       navigate('/');
     }
+    setTransactionGoing(false);
   }, []);
 
 
@@ -33,7 +31,7 @@ const VerifyPage = () => {
       ! token will be cleared from session local/storage after stripe payment
     */
   }
-  return token && transactionGoing ? (
+  return token ? (
     <div className='min-h-screen min-w-[100%] flex justify-center items-center'>
       <div className='h-[100px] w-[100px] border-2 border-y-red-500 border-x-transparent rounded-full animate-[loading_1s_linear_infinite]'>
 

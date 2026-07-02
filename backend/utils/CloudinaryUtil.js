@@ -1,9 +1,9 @@
-import cloudinary from 'cloudinary'
+import cloudinary from '../config/cloudinaryConfig.js';
 import fs from 'fs';
 
 const uploadToCloudinary = async (localFilePath) => {
   try {
-    const result = await cloudinary.v2.uploader.upload(localFilePath);
+    const result = await cloudinary.uploader.upload(localFilePath);
 
     // 🔥 Delete the file from local directory after upload
     fs.unlink(localFilePath, (err) => {
@@ -13,7 +13,6 @@ const uploadToCloudinary = async (localFilePath) => {
     return result;
   } catch (error) {
     console.error("Cloudinary upload failed:", error);
-    throw error;
   }
 };
 
