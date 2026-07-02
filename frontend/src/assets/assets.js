@@ -94,7 +94,7 @@ import stripe_logo from './other/stripe_logo.png'
 import razorpay_logo from './other/razorpay_logo.png'
 
 // export const backend_url = 'http://localhost:5300';
-export const backend_url = import.meta.env.NODE_ENV === 'production' ? 'https://blitzon-e-commerce.onrender.com' : 'http://localhost:5300';
+export const backend_url = import.meta.env.MODE === 'production' ? 'https://blitzon-e-commerce.onrender.com' : 'http://localhost:5300';
 
 export const assets = {
   blitzon_logo,
