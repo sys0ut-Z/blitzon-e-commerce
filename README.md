@@ -7,7 +7,7 @@ A MERN stack gaming gear e-commerce application with authentication, online paym
 - Add to Cart
 - Cash on Deivery
 - Stripe Payment
-- Admin Dashboard(local, not deployed)
+- Admin Dashboard(on local machine, not deployed)
 - Order Management
 
 ## 🛠️ Tech Stack
