@@ -5,13 +5,13 @@ A MERN stack gaming gear e-commerce application with authentication, online paym
 ## 🚀 Features
 - JWT Authentication
 - Add to Cart
-- Cash on Deivery
+- Cash on Delivery
 - Stripe Payment
 - Admin Dashboard(on local machine, not deployed)
 - Order Management
 
 ## 🛠️ Tech Stack
-- React
+- React.js
 - Node.js
 - Express.js
 - MongoDB
